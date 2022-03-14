@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test task</title>
+    <link rel="preload" href="fonts/tiemposfine-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/quentin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="content">
+        <section class="video">
+            <img
+                class="video__preview lazyload"
+                sizes="(min-width: 320px), (min-width: 768px)"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="img/table-vegetables.jpg"
+                data-srcset="img/table-vegetables.jpg 768w, img/table-vegetables-desktop.jpg 1664w"
+                alt=""
+                aria-label="hidden"
+            >
+            <noscript>
+                <!-- увы, но picture не работает в noscript так что придется вставлять самое "большое" изображение -->
+                <img class="video__preview" src="img/table-vegetables-desktop.jpg">
+            </noscript>
+            <div class="video__text-wrapper">
+                <h3 class="video__title">Digestion is<span class="quentin-font"> the key</span> to overall wellness in Body, Mind and Spirit</h3>
+                <div class="video__link">
+                    <a
+                        class="video__button"
+                        href="https://www.youtube.com/watch?v=8hzda0GC6nI"
+                        role="button"
+                        aria-label="Watch Video, 'Digestion is the key to overall wellness in Body, Mind and Spirit'"
+                        data-video-popup="#video-popup"
+                    >
+                        <span class="visually-hidden">Watch Now</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Не люблю выносить разметку (тем более важную её часть) в js, поэтому юзаю template в данной ситуации -->
+    <template id="video-popup">
+        <div class="popup">
+            <div class="popup__wrapper" tabindex="-1">
+                <iframe
+                    src=""
+                    class="popup__iframe"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+                <button
+                    aria-label="Close (Esc)"
+                    type="button"
+                    class="popup__close"
+                    data-close
+                >×</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- для lazy выбрал библиотеку всё же, эта поддерживает вьюпорты довольно неплохо (но надо обновлять страничку если меняется разрешение) -->
+    <script src="js/lazysizes.min.js" async=""></script>
+    <script src="js/script.js" async=""></script>
+</body>
+</html>
